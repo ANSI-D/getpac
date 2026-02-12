@@ -13,7 +13,7 @@ const aurGitURL = "https://aur.archlinux.org"
 func downloadPackage(pkgName string) (string, error) {
 	buildDir := filepath.Join("/tmp", "getpac-"+pkgName)
 	
-	// Remove existing build directory if it exists
+	// removes existing build directory if it exists
 	os.RemoveAll(buildDir)
 	
 	gitURL := fmt.Sprintf("%s/%s.git", aurGitURL, pkgName)
@@ -29,7 +29,7 @@ func downloadPackage(pkgName string) (string, error) {
 	return buildDir, nil
 }
 
-// buildPackage runs makepkg to build the package
+// runs makepkg to build the package
 func buildPackage(buildDir string) (string, error) {
 	fmt.Println("Building package...")
 	
@@ -55,7 +55,7 @@ func buildPackage(buildDir string) (string, error) {
 	return files[0], nil
 }
 
-// installBuiltPackage uses pacman to install the built package
+// installs the built pkg with pacman
 func installBuiltPackage(pkgFile string) error {
 	fmt.Printf("Installing %s...\n", filepath.Base(pkgFile))
 	

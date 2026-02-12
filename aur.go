@@ -32,7 +32,7 @@ type AURPackage struct {
 	URLPath        string   `json:"URLPath"`
 }
 
-// getAURPackageInfo queries the AUR RPC API for package information
+// function queries the AUR RPC API for package information
 func getAURPackageInfo(pkgName string) (*AURPackage, error) {
 	params := url.Values{}
 	params.Add("v", "5")
